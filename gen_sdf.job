@@ -1,0 +1,10 @@
+#!/bin/bash
+#SBATCH --nodes 1
+#SBATCH --ntasks 60
+#SBATCH --time 03:00:00
+#SBATCH --job-name pdb_gen
+#SBATCH --partition=k2-hipri
+#SBATCH --mem-per-cpu=4G
+
+module purge && module load compilers/gcc/system libs/gcc/5.1.0 libs/lapack/3.5.0/gcc-4.8.5 mpi/intel-mpi/2016u1/bin apps/java/18.0.1.1/noarch
+bash gen_geometry.sh
